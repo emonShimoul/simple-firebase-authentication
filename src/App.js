@@ -28,6 +28,8 @@ function App() {
       {
         user.email && <div>
           <h2>Welcome {user.name}</h2>
+          <p>Email: {user.email}</p>
+          <img src={user.photo} />
         </div>
       }
     </div>

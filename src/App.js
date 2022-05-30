@@ -20,6 +20,9 @@ function App() {
       };
       setUser(loggedInUser);
     })
+    .catch(error => {
+      console.log(error.message);
+    })
   }
   return (
     <div className="App">

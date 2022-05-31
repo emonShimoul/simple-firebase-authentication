@@ -39,10 +39,15 @@ function App() {
       setUser(loggedInUser);
     })
   }
+
+  const handleSignOut = () => {
+    
+  }
   return (
     <div className="App">
       <button onClick={handleGoogleSignIn}>Google Sign In</button>
       <button onClick={handleGithubSignIn}>Github Sign In</button>
+      <button onClick={handleSignOut}>SignOut</button>
       <br />
       {
         user.name && <div>

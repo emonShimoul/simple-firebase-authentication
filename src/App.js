@@ -30,8 +30,13 @@ function App() {
   const handleGithubSignIn = () => {
     signInWithPopup(auth, githubProvider)
     .then(result => {
-      const user = result.user;
-      console.log(user);
+      const {displayName, email, photoURL} = result.user;
+      const loggedInUser = {
+        name: displayName,
+        email: email,
+        photo: photoURL
+      };
+      setUser(loggedInUser);
     })
   }
   return (
@@ -40,7 +45,7 @@ function App() {
       <button onClick={handleGithubSignIn}>Github Sign In</button>
       <br />
       {
-        user.email && <div>
+        user.name && <div>
           <h2>Welcome {user.name}</h2>
           <p>Email: {user.email}</p>
           <img src={user.photo} />

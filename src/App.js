@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider,signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider, signOut } from "firebase/auth";
 import { useState } from "react";
 import './App.css';
 
@@ -10,6 +10,7 @@ function App() {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const auth = getAuth();
   const handleGoogleSignIn = () => {
@@ -40,6 +41,10 @@ function App() {
     })
   }
 
+  const handleFacebookSignIn = () => {
+    
+  }
+
   const handleSignOut = () => {
     signOut(auth)
     .then(() => {
@@ -52,6 +57,7 @@ function App() {
       <div>
         <button onClick={handleGoogleSignIn}>Google Sign In</button>
         <button onClick={handleGithubSignIn}>Github Sign In</button>
+        <button onClick={handleFacebookSignIn}>Facebook Sign In</button>
       </div>:
       <button onClick={handleSignOut}>SignOut</button>
       }

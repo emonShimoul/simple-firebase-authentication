@@ -13,6 +13,8 @@ function App() {
   const facebookProvider = new FacebookAuthProvider();
 
   const auth = getAuth();
+
+  // google sign in
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
     .then(result => {
@@ -28,6 +30,8 @@ function App() {
       console.log(error.message);
     })
   }
+
+  // github sign in
   const handleGithubSignIn = () => {
     signInWithPopup(auth, githubProvider)
     .then(result => {
@@ -41,6 +45,7 @@ function App() {
     })
   }
 
+// facebook sign in
   const handleFacebookSignIn = () => {
     signInWithPopup(auth, facebookProvider)
     .then(result => {

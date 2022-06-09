@@ -42,7 +42,17 @@ function App() {
   }
 
   const handleFacebookSignIn = () => {
-    
+    signInWithPopup(auth, facebookProvider)
+    .then(result => {
+      const {displayName, email, photoURL} = result.user;
+      console.log(result.user);
+      const loggedInUser = {
+        name: displayName,
+        email: email,
+        photo: photoURL
+      };
+      setUser(loggedInUser);
+    })
   }
 
   const handleSignOut = () => {
